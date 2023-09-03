@@ -30,4 +30,24 @@ function checkWin() {
         gameOver = true;
         status.textContent = "It's a draw!";
     }
-    
+}
+
+// Event listener for cell clicks
+cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        if (cell.textContent === '' && !gameOver) {
+            cell.textContent = currentPlayer;
+            checkWin();
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            status.textContent = `Player ${currentPlayer}'s turn`;
+        }
+    });
+});
+
+// Event listener for reset button
+resetButton.addEventListener('click', () => {
+    cells.forEach(cell => cell.textContent = '');
+    currentPlayer = 'X';
+    gameOver = false;
+    status.textContent = "Player X's turn";
+});
