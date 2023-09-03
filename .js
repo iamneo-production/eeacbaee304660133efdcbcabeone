@@ -49,5 +49,6 @@ resetButton.addEventListener('click', () => {
     cells.forEach(cell => cell.textContent = '');
     currentPlayer = 'X';
     gameOver = false;
-    status.textContent = "Player X's turn";
+    statusbar.textContent = "Player X's turn";
 });
+
